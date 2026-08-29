@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ranking de Produtividade Noturna</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0b1120;color:#e2e8f0;display:flex;flex-direction:column;overflow:hidden}
+#hdr{padding:10px 20px;border-bottom:2px solid #FFE600;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;flex-wrap:wrap;gap:10px;background:#0f172a}
+#hdr h1{font-size:clamp(14px,2vw,22px);font-weight:900;color:#FFE600;letter-spacing:.5px}
+#hdr .sub{font-size:clamp(9px,1vw,13px);color:#94a3b8;font-weight:700;margin-top:2px}
+#meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#meta span{font-size:clamp(9px,1vw,12px);color:#94a3b8;font-weight:700}
+#refresh-btn{background:#1e293b;border:1px solid #334155;color:#e2e8f0;font-size:clamp(9px,1vw,13px);font-weight:800;cursor:pointer;padding:6px 14px;border-radius:8px}
+#refresh-btn:hover{background:#334155}
+#refresh-btn:disabled{opacity:.5;cursor:default}
+#cols{flex:1;min-height:0;display:flex;flex-direction:row;overflow:hidden}
+.col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;border-right:1px solid #1e293b;overflow:hidden}
+.col:last-child{border-right:none}
+.col-hdr{flex-shrink:0;padding:8px 14px;background:#111c34;display:flex;flex-direction:column;gap:2px}
+.col-hdr .name{font-weight:900;font-size:clamp(11px,1.4vw,17px);text-transform:uppercase}
+.col-hdr .count{color:#64748b;font-weight:700;font-size:clamp(8px,.95vw,12px)}
+.rows{flex:1;min-height:0;overflow-y:auto}
+.row{display:grid;grid-template-columns:clamp(16px,1.8vw,26px) 1fr clamp(52px,7vw,74px) clamp(46px,6vw,64px);align-items:center;gap:6px;padding:5px 14px;border-bottom:1px solid #1e293b}
+.row .rank{color:#64748b;font-weight:900;font-size:clamp(9px,1.05vw,13px)}
+.row .nm{color:#f1f5f9;font-weight:800;font-size:clamp(9px,1.1vw,14px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.row .bar-bg{background:#1e293b;border-radius:3px;height:4px;margin-top:2px;overflow:hidden}
+.row .bar{height:100%}
+.row .un{color:#f1f5f9;font-weight:800;font-size:clamp(9px,1.1vw,14px);text-align:right;white-space:nowrap}
+.row .unh{color:#FFE600;font-weight:800;font-size:clamp(9px,1vw,13px);text-align:right;white-space:nowrap}
+#empty{padding:40px;text-align:center;color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+<div id="hdr">
+  <div>
+    <h1>&#127942; Ranking de Produtividade Noturna</h1>
+    <div class="sub" id="shift-label">Turno &mdash;</div>
+  </div>
+  <div id="meta">
+    <span id="last-updated">Atualizado: &mdash;</span>
+    <button id="refresh-btn">&#8635; Atualizar agora</button>
+  </div>
+</div>
+<div id="cols"></div>
+
+<script>
+var CAT_ORDER = {hu_assembly:0, packing:1, picking:2};
+var CAT_LABELS = {hu_assembly:'HU Assembly', packing:'Packing', picking:'Picking'};
+var CAT_COLORS = {hu_assembly:'#38bdf8', packing:'#a78bfa', picking:'#fb923c'};
+
+function fmtDateTime(iso) {
+  try {
+    var d = new Date(iso);
+    return d.toLocaleString('pt-BR', {timeZone:'America/Sao_Paulo', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit'});
+  } catch(e) { return iso || '—'; }
+}
+
+function media(items) {
+  var c = items.filter(function(it){ return it.unh !== null && it.unh !== undefined; });
+  if (!c.length) return 0;
+  return c.reduce(function(s,it){ return s + it.unh; }, 0) / c.length;
+}
+
+function buildRow(it, idx, med, leader) {
+  var unhTxt = (it.unh === null || it.unh === undefined) ? '&mdash;' : it.unh.toFixed(1).replace('.', ',') + ' un/h';
+  var barPct = leader > 0 ? Math.max(4, (it.unidades / leader) * 100) : 4;
+  var barColor = (it.unh === null || it.unh === undefined) ? '#334155' : (it.unh >= med ? '#22c55e' : '#f59e0b');
+  var row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML =
+    '<span class="rank">' + (idx + 1) + '</span>' +
+    '<div style="min-width:0"><div class="nm">' + it.name + '</div><div class="bar-bg"><div class="bar" style="width:' + barPct + '%;background:' + barColor + '"></div></div></div>' +
+    '<span class="un">' + it.unidades.toLocaleString('pt-BR') + '</span>' +
+    '<span class="unh">' + unhTxt + '</span>';
+  return row;
+}
+
+function render(data) {
+  var items = (data.items || []).slice();
+  document.getElementById('shift-label').textContent = 'Turno ' + (data.shift_label || '—');
+  document.getElementById('last-updated').textContent = 'Atualizado: ' + fmtDateTime(data.generated_at);
+
+  var colsEl = document.getElementById('cols');
+  colsEl.innerHTML = '';
+
+  if (!items.length) {
+    colsEl.innerHTML = '<div id="empty">Sem dados publicados ainda para este turno.</div>';
+    return;
+  }
+
+  var med = media(items);
+  var leader = items.reduce(function(m, it){ return Math.max(m, it.unidades); }, 1);
+
+  var groups = {};
+  var order = [];
+  items.forEach(function(it) {
+    if (!groups[it.process]) { groups[it.process] = []; order.push(it.process); }
+    groups[it.process].push(it);
+  });
+  order.sort(function(a, b) {
+    var oa = (CAT_ORDER[a] !== undefined) ? CAT_ORDER[a] : 99;
+    var ob = (CAT_ORDER[b] !== undefined) ? CAT_ORDER[b] : 99;
+    return oa - ob;
+  });
+
+  order.forEach(function(proc) {
+    var list = groups[proc].slice().sort(function(a, b){ return b.unidades - a.unidades; });
+    var total = list.reduce(function(s, it){ return s + it.unidades; }, 0);
+    var color = CAT_COLORS[proc] || '#94a3b8';
+    var label = CAT_LABELS[proc] || proc;
+
+    var col = document.createElement('div');
+    col.className = 'col';
+
+    var colHdr = document.createElement('div');
+    colHdr.className = 'col-hdr';
+    colHdr.style.borderBottom = '2px solid ' + color;
+    colHdr.innerHTML =
+      '<span class="name" style="color:' + color + '">' + label + '</span>' +
+      '<span class="count">' + list.length + ' pessoas &middot; ' + total.toLocaleString('pt-BR') + ' un</span>';
+    col.appendChild(colHdr);
+
+    var rowsWrap = document.createElement('div');
+    rowsWrap.className = 'rows';
+    list.forEach(function(it, idx) {
+      rowsWrap.appendChild(buildRow(it, idx, med, leader));
+    });
+    col.appendChild(rowsWrap);
+
+    colsEl.appendChild(col);
+  });
+}
+
+function load(showSpinner) {
+  var btn = document.getElementById('refresh-btn');
+  if (showSpinner && btn) { btn.disabled = true; btn.textContent = 'Atualizando...'; }
+  fetch('./data.json?t=' + Date.now(), {cache: 'no-store'})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      render(data);
+    })
+    .catch(function(e) {
+      console.error('[RankingD0D1] erro ao carregar data.json', e);
+    })
+    .finally(function() {
+      if (showSpinner && btn) { btn.disabled = false; btn.textContent = '↻ Atualizar agora'; }
+    });
+}
+
+document.getElementById('refresh-btn').addEventListener('click', function() { load(true); });
+load(false);
+setInterval(function() { load(false); }, 60000);
+</script>
+</body>
+</html>
