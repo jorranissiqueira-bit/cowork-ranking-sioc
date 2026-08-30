@@ -1,175 +1,23 @@
 {
-  "generated_at": "2026-08-29T07:45:00-03:00",
-  "shift_label": "28/08 23:00 → 29/08 07:07",
-  "shift_date_d0": "2026-08-28",
+  "generated_at": "2026-08-30T00:24:57-03:00",
+  "shift_label": "29/08 23:00 → 30/08 07:07",
+  "shift_date_d0": "2026-08-29",
   "items": [
-    {
-      "name": "ucajsilva",
-      "process": "cycle_count",
-      "unidades": 784,
-      "unh": 396.6
-    },
-    {
-      "name": "romferreira",
-      "process": "hu_assembly",
-      "unidades": 536,
-      "unh": 167.0
-    },
-    {
-      "name": "ccrrafaela",
-      "process": "hu_assembly",
-      "unidades": 500,
-      "unh": 191.8
-    },
-    {
-      "name": "vitpetrola",
-      "process": "hu_assembly",
-      "unidades": 354,
-      "unh": 172.8
-    },
-    {
-      "name": "edsonmalves",
-      "process": "hu_assembly",
-      "unidades": 190,
-      "unh": 210.7
-    },
-    {
-      "name": "gferreirasil",
-      "process": "hu_assembly",
-      "unidades": 184,
-      "unh": 152.5
-    },
-    {
-      "name": "elamaria",
-      "process": "hu_assembly",
-      "unidades": 117,
-      "unh": 213.9
-    },
-    {
-      "name": "josecaamaral",
-      "process": "hu_assembly",
-      "unidades": 28,
-      "unh": 158.0
-    },
-    {
-      "name": "adsousilva",
-      "process": "hu_assembly",
-      "unidades": 10,
-      "unh": 101.1
-    },
-    {
-      "name": "ucajsilva",
-      "process": "open_transfer",
-      "unidades": 34,
-      "unh": 99.1
-    },
-    {
-      "name": "ccrrafaela",
-      "process": "packing",
-      "unidades": 150,
-      "unh": 162.6
-    },
-    {
-      "name": "elamaria",
-      "process": "packing",
-      "unidades": 108,
-      "unh": 120.3
-    },
-    {
-      "name": "tatianemasil",
-      "process": "packing",
-      "unidades": 65,
-      "unh": 170.1
-    },
-    {
-      "name": "rmlira",
-      "process": "picking",
-      "unidades": 340,
-      "unh": 93.2
-    },
-    {
-      "name": "cleooliveira",
-      "process": "picking",
-      "unidades": 294,
-      "unh": 84.2
-    },
-    {
-      "name": "edrassis",
-      "process": "picking",
-      "unidades": 287,
-      "unh": 77.1
-    },
-    {
-      "name": "taixavier",
-      "process": "picking",
-      "unidades": 272,
-      "unh": 71.3
-    },
-    {
-      "name": "joajunior",
-      "process": "picking",
-      "unidades": 261,
-      "unh": 84.7
-    },
-    {
-      "name": "cjose",
-      "process": "picking",
-      "unidades": 251,
-      "unh": 66.8
-    },
-    {
-      "name": "matheusmcruz",
-      "process": "picking",
-      "unidades": 248,
-      "unh": 68.4
-    },
-    {
-      "name": "agbatista",
-      "process": "picking",
-      "unidades": 243,
-      "unh": 80.5
-    },
-    {
-      "name": "anaddutra",
-      "process": "picking",
-      "unidades": 238,
-      "unh": 86.1
-    },
-    {
-      "name": "thlira",
-      "process": "picking",
-      "unidades": 207,
-      "unh": 81.3
-    },
-    {
-      "name": "rmariely",
-      "process": "picking",
-      "unidades": 33,
-      "unh": 87.7
-    },
-    {
-      "name": "ivanil",
-      "process": "putaway",
-      "unidades": 206,
-      "unh": 99.5
-    },
-    {
-      "name": "deyvsonhesil",
-      "process": "putaway",
-      "unidades": 179,
-      "unh": 85.2
-    },
-    {
-      "name": "rmariely",
-      "process": "putaway",
-      "unidades": 78,
-      "unh": 57.2
-    },
-    {
-      "name": "cleooliveira",
-      "process": "putaway",
-      "unidades": 21,
-      "unh": 74.7
-    }
+    {"name": "ucajsilva", "process": "cycle_count", "unidades": 51, "unh": 285.1},
+    {"name": "elperes", "process": "hu_assembly", "unidades": 121, "unh": 280.9},
+    {"name": "edsonmalves", "process": "hu_assembly", "unidades": 75, "unh": 414.1},
+    {"name": "gferreirasil", "process": "hu_assembly", "unidades": 73, "unh": 168.7},
+    {"name": "taixavier", "process": "picking", "unidades": 41, "unh": 108.6},
+    {"name": "rocavalcanti", "process": "picking", "unidades": 40, "unh": 94.7},
+    {"name": "rmlira", "process": "picking", "unidades": 38, "unh": 90.2},
+    {"name": "deyvsonhesil", "process": "picking", "unidades": 38, "unh": 96.3},
+    {"name": "agbatista", "process": "picking", "unidades": 37, "unh": 89.6},
+    {"name": "ivanil", "process": "picking", "unidades": 27, "unh": 77.5},
+    {"name": "joajunior", "process": "picking", "unidades": 24, "unh": 75.3},
+    {"name": "evesalves", "process": "picking", "unidades": 23, "unh": 83.2},
+    {"name": "cleooliveira", "process": "picking", "unidades": 20, "unh": 75.1},
+    {"name": "elainevsilva", "process": "picking", "unidades": 19, "unh": 96.6},
+    {"name": "wafranca", "process": "picking", "unidades": 15, "unh": 72.1},
+    {"name": "tacianamasil", "process": "picking", "unidades": 11, "unh": 75.7}
   ]
 }
