@@ -1,31 +1,103 @@
 {
-  "generated_at": "2026-08-30T06:07:46-03:00",
-  "shift_label": "29/08 23:00 → 30/08 07:07",
-  "shift_date_d0": "2026-08-29",
+  "generated_at": "2026-08-31T00:13:43-03:00",
+  "shift_label": "30/08 23:00 → 31/08 07:07",
+  "shift_date_d0": "2026-08-30",
   "items": [
-    {"name": "ucajsilva", "process": "cycle_count", "unidades": 713, "unh": 330.9},
-    {"name": "gferreirasil", "process": "hu_assembly", "unidades": 507, "unh": 176.7},
-    {"name": "elperes", "process": "hu_assembly", "unidades": 459, "unh": 178.7},
-    {"name": "ccrrafaela", "process": "hu_assembly", "unidades": 274, "unh": 178.9},
-    {"name": "vitpetrola", "process": "hu_assembly", "unidades": 267, "unh": 181.9},
-    {"name": "josecaamaral", "process": "hu_assembly", "unidades": 160, "unh": 243.1},
-    {"name": "edsonmalves", "process": "hu_assembly", "unidades": 75, "unh": 414.1},
-    {"name": "jailsonassil", "process": "hu_assembly", "unidades": 60, "unh": 110.8},
-    {"name": "elamaria", "process": "hu_assembly", "unidades": 23, "unh": 171.4},
-    {"name": "ucajsilva", "process": "open_transfer", "unidades": 19, "unh": 67.4},
-    {"name": "ccrrafaela", "process": "packing", "unidades": 117, "unh": 117.4},
-    {"name": "wafranca", "process": "picking", "unidades": 301, "unh": 96.6},
-    {"name": "taixavier", "process": "picking", "unidades": 292, "unh": 78.8},
-    {"name": "rmlira", "process": "picking", "unidades": 253, "unh": 87.5},
-    {"name": "deyvsonhesil", "process": "picking", "unidades": 240, "unh": 74.4},
-    {"name": "elainevsilva", "process": "picking", "unidades": 238, "unh": 85.5},
-    {"name": "joajunior", "process": "picking", "unidades": 228, "unh": 88.4},
-    {"name": "ivanil", "process": "picking", "unidades": 227, "unh": 88.2},
-    {"name": "evesalves", "process": "picking", "unidades": 222, "unh": 87.4},
-    {"name": "agbatista", "process": "picking", "unidades": 212, "unh": 75.8},
-    {"name": "tacianamasil", "process": "picking", "unidades": 199, "unh": 73.6},
-    {"name": "rocavalcanti", "process": "picking", "unidades": 194, "unh": 65.6},
-    {"name": "cleooliveira", "process": "picking", "unidades": 183, "unh": 82.4},
-    {"name": "seljunior", "process": "putwallin", "unidades": 726, "unh": 557.6}
+    {
+      "name": "josecaamaral",
+      "process": "hu_assembly",
+      "unidades": 56,
+      "unh": 238.3
+    },
+    {
+      "name": "elamaria",
+      "process": "hu_assembly",
+      "unidades": 46,
+      "unh": 193.5
+    },
+    {
+      "name": "gajose",
+      "process": "hu_assembly",
+      "unidades": 41,
+      "unh": 227.1
+    },
+    {
+      "name": "ccrrafaela",
+      "process": "packing",
+      "unidades": 56,
+      "unh": 192.0
+    },
+    {
+      "name": "pralbuquerqu",
+      "process": "packing",
+      "unidades": 17,
+      "unh": 97.5
+    },
+    {
+      "name": "elainevsilva",
+      "process": "picking",
+      "unidades": 41,
+      "unh": 181.3
+    },
+    {
+      "name": "taixavier",
+      "process": "picking",
+      "unidades": 38,
+      "unh": 161.1
+    },
+    {
+      "name": "agbatista",
+      "process": "picking",
+      "unidades": 30,
+      "unh": 109.8
+    },
+    {
+      "name": "tacianamasil",
+      "process": "picking",
+      "unidades": 26,
+      "unh": 97.2
+    },
+    {
+      "name": "joajunior",
+      "process": "picking",
+      "unidades": 25,
+      "unh": 95.7
+    },
+    {
+      "name": "ivanil",
+      "process": "picking",
+      "unidades": 20,
+      "unh": 104.3
+    },
+    {
+      "name": "evesalves",
+      "process": "picking",
+      "unidades": 18,
+      "unh": 113.1
+    },
+    {
+      "name": "wafranca",
+      "process": "picking",
+      "unidades": 17,
+      "unh": 73.2
+    },
+    {
+      "name": "rocavalcanti",
+      "process": "picking",
+      "unidades": 17,
+      "unh": 77.8
+    },
+    {
+      "name": "cleooliveira",
+      "process": "picking",
+      "unidades": 16,
+      "unh": 95.5
+    },
+    {
+      "name": "rmlira",
+      "process": "picking",
+      "unidades": 12,
+      "unh": 66.9
+    }
   ]
 }
