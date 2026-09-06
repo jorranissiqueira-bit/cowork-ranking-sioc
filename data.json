@@ -1,31 +1,19 @@
 {
-  "generated_at": "2026-09-05T06:07:14-03:00",
-  "shift_label": "04/09 23:00 → 05/09 07:07",
-  "shift_date_d0": "2026-09-04",
+  "generated_at": "2026-09-06T00:14:13-03:00",
+  "shift_label": "05/09 23:00 → 06/09 07:07",
+  "shift_date_d0": "2026-09-05",
   "items": [
-    {"name": "cjose", "process": "cycle_count", "unidades": 1285, "unh": 376.6},
-    {"name": "josecaamaral", "process": "hu_assembly", "unidades": 676, "unh": 208.0},
-    {"name": "elamaria", "process": "hu_assembly", "unidades": 640, "unh": 197.8},
-    {"name": "tatianemasil", "process": "hu_assembly", "unidades": 421, "unh": 184.0},
-    {"name": "vitpetrola", "process": "hu_assembly", "unidades": 231, "unh": 155.3},
-    {"name": "adsousilva", "process": "hu_assembly", "unidades": 177, "unh": 138.2},
-    {"name": "ccrrafaela", "process": "packing", "unidades": 496, "unh": 117.3},
-    {"name": "emtsilva", "process": "picking", "unidades": 413, "unh": 109.4},
-    {"name": "edrassis", "process": "picking", "unidades": 389, "unh": 104.8},
-    {"name": "matheusmcruz", "process": "picking", "unidades": 387, "unh": 101.0},
-    {"name": "wafranca", "process": "picking", "unidades": 365, "unh": 96.7},
-    {"name": "cleooliveira", "process": "picking", "unidades": 355, "unh": 93.4},
-    {"name": "ivanil", "process": "picking", "unidades": 339, "unh": 99.5},
-    {"name": "walfsilva", "process": "picking", "unidades": 338, "unh": 81.9},
-    {"name": "deyvsonhesil", "process": "picking", "unidades": 331, "unh": 89.5},
-    {"name": "taixavier", "process": "picking", "unidades": 326, "unh": 92.9},
-    {"name": "iirrodrigo", "process": "picking", "unidades": 313, "unh": 106.5},
-    {"name": "rmlira", "process": "picking", "unidades": 297, "unh": 81.6},
-    {"name": "joajunior", "process": "picking", "unidades": 278, "unh": 80.8},
-    {"name": "thlira", "process": "picking", "unidades": 232, "unh": 95.7},
-    {"name": "anaddutra", "process": "picking", "unidades": 201, "unh": 95.7},
-    {"name": "cjose", "process": "picking", "unidades": 35, "unh": 78.5},
-    {"name": "rmariely", "process": "picking", "unidades": 1, "unh": 31.9},
-    {"name": "ucajsilva", "process": "stock_audit", "unidades": 10, "unh": 38.5}
+    {
+      "name": "josecaamaral",
+      "process": "hu_assembly",
+      "unidades": 30,
+      "unh": 542.7
+    },
+    {
+      "name": "elamaria",
+      "process": "hu_assembly",
+      "unidades": 7,
+      "unh": 150.9
+    }
   ]
 }
