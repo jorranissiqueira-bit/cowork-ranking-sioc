@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T04:23:41-03:00",
+  "generated_at": "2026-09-12T04:44:24-03:00",
   "shift_label": "11/09 23:00 → 12/09 07:07",
   "shift_date_d0": "2026-09-11",
   "items": [
@@ -12,9 +12,9 @@
     {"name": "renanwissilv", "process": "hu_assembly", "unidades": 201, "unh": 115.0},
     {"name": "adsousilva", "process": "hu_assembly", "unidades": 189, "unh": 132.9},
     {"name": "tatianemasil", "process": "packing", "unidades": 318, "unh": 115.6},
-    {"name": "emtsilva", "process": "picking", "unidades": 307, "unh": 124.4},
+    {"name": "emtsilva", "process": "picking", "unidades": 308, "unh": 123.2},
     {"name": "agbatista", "process": "picking", "unidades": 285, "unh": 115.6},
-    {"name": "matheusmcruz", "process": "picking", "unidades": 266, "unh": 108.8},
+    {"name": "matheusmcruz", "process": "picking", "unidades": 272, "unh": 108.0},
     {"name": "tacianamasil", "process": "picking", "unidades": 266, "unh": 103.8},
     {"name": "evesalves", "process": "picking", "unidades": 265, "unh": 103.0},
     {"name": "elainevsilva", "process": "picking", "unidades": 263, "unh": 95.0},
@@ -22,8 +22,8 @@
     {"name": "ivanil", "process": "picking", "unidades": 230, "unh": 101.0},
     {"name": "anaddutra", "process": "picking", "unidades": 224, "unh": 103.4},
     {"name": "taixavier", "process": "picking", "unidades": 215, "unh": 96.5},
+    {"name": "edrassis", "process": "picking", "unidades": 211, "unh": 93.7},
     {"name": "rmariely", "process": "picking", "unidades": 211, "unh": 115.8},
-    {"name": "edrassis", "process": "picking", "unidades": 208, "unh": 95.4},
     {"name": "iirrodrigo", "process": "picking", "unidades": 196, "unh": 115.3},
     {"name": "deyvsonhesil", "process": "picking", "unidades": 190, "unh": 77.1},
     {"name": "thlira", "process": "picking", "unidades": 119, "unh": 77.2}
