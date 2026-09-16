@@ -3,40 +3,44 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Ranking de Produtividade Noturna</title>
+<title>Ranking Detalhado — Produtividade Noturna</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#0b1120;color:#e2e8f0;display:flex;flex-direction:column;overflow:hidden}
-#hdr{padding:10px 20px;border-bottom:2px solid #FFE600;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;flex-wrap:wrap;gap:10px;background:#0f172a}
-#hdr h1{font-size:clamp(14px,2vw,22px);font-weight:900;color:#FFE600;letter-spacing:.5px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0b1120;color:#e2e8f0;padding:16px}
+.wrap{max-width:1100px;margin:0 auto}
+#hdr{padding:12px 18px;border-bottom:2px solid #FFE600;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;background:#0f172a;border-radius:12px 12px 0 0}
+#hdr h1{font-size:clamp(15px,2vw,22px);font-weight:900;color:#FFE600;letter-spacing:.5px}
 #hdr .sub{font-size:clamp(9px,1vw,13px);color:#94a3b8;font-weight:700;margin-top:2px}
 #meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 #meta span{font-size:clamp(9px,1vw,12px);color:#94a3b8;font-weight:700}
 #refresh-btn{background:#1e293b;border:1px solid #334155;color:#e2e8f0;font-size:clamp(9px,1vw,13px);font-weight:800;cursor:pointer;padding:6px 14px;border-radius:8px}
 #refresh-btn:hover{background:#334155}
 #refresh-btn:disabled{opacity:.5;cursor:default}
-#cols{flex:1;min-height:0;display:flex;flex-direction:row;overflow:hidden}
-.col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;border-right:1px solid #1e293b;overflow:hidden}
-.col:last-child{border-right:none}
-.col-hdr{flex-shrink:0;padding:8px 14px;background:#111c34;display:flex;flex-direction:column;gap:2px}
-.col-hdr .name{font-weight:900;font-size:clamp(11px,1.4vw,17px);text-transform:uppercase}
-.col-hdr .count{color:#64748b;font-weight:700;font-size:clamp(8px,.95vw,12px)}
-.rows{flex:1;min-height:0;overflow-y:auto}
-.row{display:grid;grid-template-columns:clamp(16px,1.8vw,26px) 1fr clamp(52px,7vw,74px) clamp(46px,6vw,64px);align-items:center;gap:6px;padding:5px 14px;border-bottom:1px solid #1e293b}
-.row .rank{color:#64748b;font-weight:900;font-size:clamp(9px,1.05vw,13px)}
-.row .nm{color:#f1f5f9;font-weight:800;font-size:clamp(9px,1.1vw,14px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
-.row .bar-bg{background:#1e293b;border-radius:3px;height:4px;margin-top:2px;overflow:hidden}
-.row .bar{height:100%}
-.row .un{color:#f1f5f9;font-weight:800;font-size:clamp(9px,1.1vw,14px);text-align:right;white-space:nowrap}
-.row .unh{color:#FFE600;font-weight:800;font-size:clamp(9px,1vw,13px);text-align:right;white-space:nowrap}
-#empty{padding:40px;text-align:center;color:#64748b;font-size:14px}
+#legend{background:#111c34;color:#94a3b8;font-size:clamp(9px,1vw,12px);font-weight:700;padding:8px 18px}
+#empty{padding:40px;text-align:center;color:#64748b;font-size:14px;background:#0f172a}
+.proc{margin-top:14px;background:#0f172a;border-radius:12px;overflow:hidden}
+.phead{display:flex;justify-content:space-between;align-items:baseline;padding:8px 16px;background:#111c34;border-left:4px solid #FFE600;flex-wrap:wrap;gap:6px}
+.pname{color:#FFE600;font-weight:900;font-size:clamp(13px,1.6vw,18px);text-transform:uppercase}
+.pcount{color:#64748b;font-weight:700;font-size:clamp(9px,1vw,12px)}
+table{width:100%;border-collapse:collapse}
+thead th{color:#64748b;font-weight:800;font-size:clamp(8px,1vw,11px);padding:5px 4px;text-align:center;border-bottom:2px solid #334155}
+thead th.re{text-align:center}
+tbody td, tfoot td{padding:5px 4px;text-align:center;font-size:clamp(9px,1.05vw,13px);border-bottom:1px solid #1e293b}
+td.rank{color:#64748b;font-weight:900}
+td.re{color:#f1f5f9;font-weight:800}
+td.liq{color:#FFE600;font-weight:900;text-align:right;padding-right:10px}
+td.tot{color:#f1f5f9;font-weight:900;text-align:right;padding-right:10px}
+td.hc{font-weight:800}
+td.dash{color:#475569}
+tr.totalrow td{background:#111c34;font-weight:900;color:#94a3b8;border-top:2px solid #334155;border-bottom:none}
+tbody tr:nth-child(even){background:#0d1526}
 </style>
 </head>
 <body>
+<div class="wrap">
 <div id="hdr">
   <div>
-    <h1>&#127942; Ranking de Produtividade Noturna</h1>
+    <h1>&#127942; Ranking Detalhado &mdash; Packing, Hu (Shipping) e Picking SIOC</h1>
     <div class="sub" id="shift-label">Turno &mdash;</div>
   </div>
   <div id="meta">
@@ -44,12 +48,13 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0b1120;color:#e2e8f
     <button id="refresh-btn">&#8635; Atualizar agora</button>
   </div>
 </div>
-<div id="cols"></div>
+<div id="legend">Meta por representante/hora (HU 130 &middot; Packing 105 &middot; Picking SIOC 75 un): <span style="color:#22c55e">verde</span> = atingiu, <span style="color:#f59e0b">amarelo</span> = at&eacute;10% abaixo, <span style="color:#ef4444">vermelho</span> = mais de 10% abaixo. A 23H n&atilde;o entra na meta (hora parcial/quebrada) e aparece sem cor.</div>
+<div id="body"></div>
+</div>
 
 <script>
-var CAT_ORDER = {hu_assembly:0, packing:1, picking:2};
-var CAT_LABELS = {hu_assembly:'HU Assembly', packing:'Packing', picking:'Picking'};
-var CAT_COLORS = {hu_assembly:'#38bdf8', packing:'#a78bfa', picking:'#fb923c'};
+var CAT_ORDER = ['packing', 'hu_assembly', 'picking_single_order'];
+var HOUR_COLS = [23, 0, 1, 2, 3, 4, 5, 6];
 
 function fmtDateTime(iso) {
   try {
@@ -58,80 +63,78 @@ function fmtDateTime(iso) {
   } catch(e) { return iso || '—'; }
 }
 
-function media(items) {
-  var c = items.filter(function(it){ return it.unh !== null && it.unh !== undefined; });
-  if (!c.length) return 0;
-  return c.reduce(function(s,it){ return s + it.unh; }, 0) / c.length;
+function fmtNum(n) { return n.toLocaleString('pt-BR'); }
+function fmtLiq(n) { return (n === null || n === undefined) ? '—' : n.toFixed(1).replace('.', ','); }
+
+function metaColor(v, meta) {
+  if (!v || v <= 0) return null;
+  var r = v / meta;
+  if (r >= 1) return '#22c55e';
+  if (r >= 0.9) return '#f59e0b';
+  return '#ef4444';
 }
 
-function buildRow(it, idx, med, leader) {
-  var unhTxt = (it.unh === null || it.unh === undefined) ? '&mdash;' : it.unh.toFixed(1).replace('.', ',') + ' un/h';
-  var barPct = leader > 0 ? Math.max(4, (it.unidades / leader) * 100) : 4;
-  var barColor = (it.unh === null || it.unh === undefined) ? '#334155' : (it.unh >= med ? '#22c55e' : '#f59e0b');
-  var row = document.createElement('div');
-  row.className = 'row';
-  row.innerHTML =
-    '<span class="rank">' + (idx + 1) + '</span>' +
-    '<div style="min-width:0"><div class="nm">' + it.name + '</div><div class="bar-bg"><div class="bar" style="width:' + barPct + '%;background:' + barColor + '"></div></div></div>' +
-    '<span class="un">' + it.unidades.toLocaleString('pt-BR') + '</span>' +
-    '<span class="unh">' + unhTxt + '</span>';
-  return row;
+function buildOpRow(op, idx, meta) {
+  var cells = '';
+  HOUR_COLS.forEach(function(h) {
+    var v = op.hours[String(h)];
+    var has = v && v > 0;
+    var txt = has ? fmtNum(v) : '—';
+    if (!has) {
+      cells += '<td class="hc dash">' + txt + '</td>';
+    } else if (h === 23) {
+      cells += '<td class="hc">' + txt + '</td>';
+    } else {
+      var c = metaColor(v, meta);
+      cells += '<td class="hc" style="color:' + (c || '#e2e8f0') + '">' + txt + '</td>';
+    }
+  });
+  return '<tr><td class="rank">' + (idx + 1) + '</td><td class="re">' + op.re + '</td>' + cells +
+    '<td class="liq">' + fmtLiq(op.liq) + '</td><td class="tot">' + fmtNum(op.tot) + '</td></tr>';
+}
+
+function buildTotalRow(cat) {
+  var sums = {}; HOUR_COLS.forEach(function(h){ sums[h] = 0; });
+  var totSum = 0, effSum = 0;
+  cat.operators.forEach(function(op) {
+    HOUR_COLS.forEach(function(h) { sums[h] += (op.hours[String(h)] || 0); });
+    totSum += op.tot;
+    if (op.liq) effSum += op.tot / op.liq;
+  });
+  var liqTot = effSum > 0 ? (totSum / effSum) : null;
+  var cells = '';
+  HOUR_COLS.forEach(function(h) {
+    var v = sums[h];
+    cells += v > 0 ? ('<td class="hc">' + fmtNum(v) + '</td>') : '<td class="hc dash">—</td>';
+  });
+  return '<tr class="totalrow"><td></td><td>Total</td>' + cells +
+    '<td class="liq">' + fmtLiq(liqTot) + '</td><td class="tot">' + fmtNum(totSum) + '</td></tr>';
+}
+
+function buildCatBlock(cat) {
+  var thead = '<th>#</th><th class="re">RE</th>' + HOUR_COLS.map(function(h) {
+    return '<th>' + (h < 10 ? '0' + h : h) + 'H</th>';
+  }).join('') + '<th>LÍQ.</th><th>TOT.</th>';
+  var rowsHtml = cat.operators.map(function(op, idx) { return buildOpRow(op, idx, cat.meta); }).join('');
+  var totalHtml = buildTotalRow(cat);
+  return '<div class="proc"><div class="phead"><span class="pname">' + cat.label + '</span>' +
+    '<span class="pcount">' + cat.operators.length + ' operadores &middot; ' + cat.hidden_count + ' sem atividade neste processo, ocultos</span></div>' +
+    '<table><thead><tr>' + thead + '</tr></thead><tbody>' + rowsHtml + '</tbody><tfoot>' + totalHtml + '</tfoot></table></div>';
 }
 
 function render(data) {
-  var items = (data.items || []).slice();
   document.getElementById('shift-label').textContent = 'Turno ' + (data.shift_label || '—');
   document.getElementById('last-updated').textContent = 'Atualizado: ' + fmtDateTime(data.generated_at);
 
-  var colsEl = document.getElementById('cols');
-  colsEl.innerHTML = '';
-
-  if (!items.length) {
-    colsEl.innerHTML = '<div id="empty">Sem dados publicados ainda para este turno.</div>';
+  var bodyEl = document.getElementById('body');
+  if (!data.categories) {
+    bodyEl.innerHTML = '<div id="empty">Sem dados publicados ainda para este turno.</div>';
     return;
   }
-
-  var med = media(items);
-  var leader = items.reduce(function(m, it){ return Math.max(m, it.unidades); }, 1);
-
-  var groups = {};
-  var order = [];
-  items.forEach(function(it) {
-    if (!groups[it.process]) { groups[it.process] = []; order.push(it.process); }
-    groups[it.process].push(it);
-  });
-  order.sort(function(a, b) {
-    var oa = (CAT_ORDER[a] !== undefined) ? CAT_ORDER[a] : 99;
-    var ob = (CAT_ORDER[b] !== undefined) ? CAT_ORDER[b] : 99;
-    return oa - ob;
-  });
-
-  order.forEach(function(proc) {
-    var list = groups[proc].slice().sort(function(a, b){ return b.unidades - a.unidades; });
-    var total = list.reduce(function(s, it){ return s + it.unidades; }, 0);
-    var color = CAT_COLORS[proc] || '#94a3b8';
-    var label = CAT_LABELS[proc] || proc;
-
-    var col = document.createElement('div');
-    col.className = 'col';
-
-    var colHdr = document.createElement('div');
-    colHdr.className = 'col-hdr';
-    colHdr.style.borderBottom = '2px solid ' + color;
-    colHdr.innerHTML =
-      '<span class="name" style="color:' + color + '">' + label + '</span>' +
-      '<span class="count">' + list.length + ' pessoas &middot; ' + total.toLocaleString('pt-BR') + ' un</span>';
-    col.appendChild(colHdr);
-
-    var rowsWrap = document.createElement('div');
-    rowsWrap.className = 'rows';
-    list.forEach(function(it, idx) {
-      rowsWrap.appendChild(buildRow(it, idx, med, leader));
-    });
-    col.appendChild(rowsWrap);
-
-    colsEl.appendChild(col);
-  });
+  bodyEl.innerHTML = CAT_ORDER.map(function(k) {
+    var cat = data.categories[k];
+    return cat ? buildCatBlock(cat) : '';
+  }).join('');
 }
 
 function load(showSpinner) {
@@ -139,12 +142,8 @@ function load(showSpinner) {
   if (showSpinner && btn) { btn.disabled = true; btn.textContent = 'Atualizando...'; }
   fetch('./data.json?t=' + Date.now(), {cache: 'no-store'})
     .then(function(r) { return r.json(); })
-    .then(function(data) {
-      render(data);
-    })
-    .catch(function(e) {
-      console.error('[RankingD0D1] erro ao carregar data.json', e);
-    })
+    .then(function(data) { render(data); })
+    .catch(function(e) { console.error('[RankingD0D1] erro ao carregar data.json', e); })
     .finally(function() {
       if (showSpinner && btn) { btn.disabled = false; btn.textContent = '↻ Atualizar agora'; }
     });
