@@ -24,10 +24,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0b1120;color:#e2e8f
 .pcount{color:#64748b;font-weight:700;font-size:clamp(9px,1vw,12px)}
 table{width:100%;border-collapse:collapse}
 thead th{color:#64748b;font-weight:800;font-size:clamp(8px,1vw,11px);padding:5px 4px;text-align:center;border-bottom:2px solid #334155}
-thead th.re{text-align:center}
+thead th.name{text-align:left}
 tbody td, tfoot td{padding:5px 4px;text-align:center;font-size:clamp(9px,1.05vw,13px);border-bottom:1px solid #1e293b}
 td.rank{color:#64748b;font-weight:900}
-td.re{color:#f1f5f9;font-weight:800}
+td.name{color:#f1f5f9;font-weight:800;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:0}
 td.liq{color:#FFE600;font-weight:900;text-align:right;padding-right:10px}
 td.tot{color:#f1f5f9;font-weight:900;text-align:right;padding-right:10px}
 td.hc{font-weight:800}
@@ -89,7 +89,7 @@ function buildOpRow(op, idx, meta) {
       cells += '<td class="hc" style="color:' + (c || '#e2e8f0') + '">' + txt + '</td>';
     }
   });
-  return '<tr><td class="rank">' + (idx + 1) + '</td><td class="re">' + op.re + '</td>' + cells +
+  return '<tr><td class="rank">' + (idx + 1) + '</td><td class="name">' + op.name + '</td>' + cells +
     '<td class="liq">' + fmtLiq(op.liq) + '</td><td class="tot">' + fmtNum(op.tot) + '</td></tr>';
 }
 
@@ -112,7 +112,7 @@ function buildTotalRow(cat) {
 }
 
 function buildCatBlock(cat) {
-  var thead = '<th>#</th><th class="re">RE</th>' + HOUR_COLS.map(function(h) {
+  var thead = '<th>#</th><th class="name">Nome</th>' + HOUR_COLS.map(function(h) {
     return '<th>' + (h < 10 ? '0' + h : h) + 'H</th>';
   }).join('') + '<th>LÍQ.</th><th>TOT.</th>';
   var rowsHtml = cat.operators.map(function(op, idx) { return buildOpRow(op, idx, cat.meta); }).join('');
