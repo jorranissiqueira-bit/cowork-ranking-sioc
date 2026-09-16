@@ -1,32 +1,157 @@
 {
-  "generated_at": "2026-09-16T05:14:00-03:00",
+  "generated_at": "2026-09-16T05:44:25-03:00",
   "shift_label": "15/09 23:00 → 16/09 07:07",
   "shift_date_d0": "2026-09-15",
   "items": [
-    {"name": "ddleite", "process": "cycle_count", "unidades": 400, "unh": 357.1},
-    {"name": "josecaamaral", "process": "hu_assembly", "unidades": 445, "unh": 219.3},
-    {"name": "elamaria", "process": "hu_assembly", "unidades": 270, "unh": 203.5},
-    {"name": "gferreirasil", "process": "hu_assembly", "unidades": 146, "unh": 142.9},
-    {"name": "jailsonassil", "process": "hu_assembly", "unidades": 126, "unh": 133.9},
-    {"name": "ddleite", "process": "open_transfer", "unidades": 33, "unh": 128.7},
-    {"name": "ccrrafaela", "process": "packing", "unidades": 309, "unh": 120.1},
-    {"name": "josecaamaral", "process": "packing", "unidades": 59, "unh": 121.4},
-    {"name": "renanwissilv", "process": "packing", "unidades": 42, "unh": 95.8},
-    {"name": "taixavier", "process": "picking", "unidades": 322, "unh": 115.1},
-    {"name": "rmlira", "process": "picking", "unidades": 313, "unh": 102.9},
-    {"name": "ivanil", "process": "picking", "unidades": 294, "unh": 106.8},
-    {"name": "deyvsonhesil", "process": "picking", "unidades": 281, "unh": 111.8},
-    {"name": "joajunior", "process": "picking", "unidades": 262, "unh": 93.3},
-    {"name": "agbatista", "process": "picking", "unidades": 254, "unh": 95.0},
-    {"name": "pralbuquerqu", "process": "picking", "unidades": 253, "unh": 87.7},
-    {"name": "cleooliveira", "process": "picking", "unidades": 251, "unh": 98.6},
-    {"name": "evesalves", "process": "picking", "unidades": 246, "unh": 100.2},
-    {"name": "mariavcosta", "process": "picking", "unidades": 226, "unh": 110.5},
-    {"name": "rocavalcanti", "process": "picking", "unidades": 220, "unh": 118.2},
-    {"name": "tacianamasil", "process": "picking", "unidades": 190, "unh": 91.0},
-    {"name": "wafranca", "process": "picking", "unidades": 169, "unh": 91.5},
-    {"name": "emtsilva", "process": "picking", "unidades": 160, "unh": 68.5},
-    {"name": "ddleite", "process": "quarentine", "unidades": 2, "unh": 9.3},
-    {"name": "ddleite", "process": "stock_audit", "unidades": 19, "unh": 60.3}
+    {
+      "name": "ddleite",
+      "process": "cycle_count",
+      "unidades": 486,
+      "unh": 353.2
+    },
+    {
+      "name": "josecaamaral",
+      "process": "hu_assembly",
+      "unidades": 504,
+      "unh": 213.8
+    },
+    {
+      "name": "elamaria",
+      "process": "hu_assembly",
+      "unidades": 270,
+      "unh": 203.5
+    },
+    {
+      "name": "gferreirasil",
+      "process": "hu_assembly",
+      "unidades": 168,
+      "unh": 147.5
+    },
+    {
+      "name": "jailsonassil",
+      "process": "hu_assembly",
+      "unidades": 126,
+      "unh": 133.9
+    },
+    {
+      "name": "ddleite",
+      "process": "open_transfer",
+      "unidades": 33,
+      "unh": 128.7
+    },
+    {
+      "name": "ccrrafaela",
+      "process": "packing",
+      "unidades": 352,
+      "unh": 118.0
+    },
+    {
+      "name": "josecaamaral",
+      "process": "packing",
+      "unidades": 59,
+      "unh": 121.4
+    },
+    {
+      "name": "renanwissilv",
+      "process": "packing",
+      "unidades": 42,
+      "unh": 95.8
+    },
+    {
+      "name": "rmlira",
+      "process": "picking",
+      "unidades": 361,
+      "unh": 102.6
+    },
+    {
+      "name": "ivanil",
+      "process": "picking",
+      "unidades": 349,
+      "unh": 107.2
+    },
+    {
+      "name": "taixavier",
+      "process": "picking",
+      "unidades": 338,
+      "unh": 110.7
+    },
+    {
+      "name": "deyvsonhesil",
+      "process": "picking",
+      "unidades": 320,
+      "unh": 110.9
+    },
+    {
+      "name": "cleooliveira",
+      "process": "picking",
+      "unidades": 302,
+      "unh": 100.4
+    },
+    {
+      "name": "agbatista",
+      "process": "picking",
+      "unidades": 291,
+      "unh": 94.3
+    },
+    {
+      "name": "joajunior",
+      "process": "picking",
+      "unidades": 288,
+      "unh": 94.9
+    },
+    {
+      "name": "evesalves",
+      "process": "picking",
+      "unidades": 287,
+      "unh": 97.1
+    },
+    {
+      "name": "pralbuquerqu",
+      "process": "picking",
+      "unidades": 276,
+      "unh": 87.0
+    },
+    {
+      "name": "mariavcosta",
+      "process": "picking",
+      "unidades": 256,
+      "unh": 106.9
+    },
+    {
+      "name": "rocavalcanti",
+      "process": "picking",
+      "unidades": 221,
+      "unh": 116.8
+    },
+    {
+      "name": "tacianamasil",
+      "process": "picking",
+      "unidades": 221,
+      "unh": 86.2
+    },
+    {
+      "name": "wafranca",
+      "process": "picking",
+      "unidades": 186,
+      "unh": 87.5
+    },
+    {
+      "name": "emtsilva",
+      "process": "picking",
+      "unidades": 186,
+      "unh": 70.8
+    },
+    {
+      "name": "ddleite",
+      "process": "quarentine",
+      "unidades": 2,
+      "unh": 9.3
+    },
+    {
+      "name": "ddleite",
+      "process": "stock_audit",
+      "unidades": 26,
+      "unh": 38.2
+    }
   ]
 }
