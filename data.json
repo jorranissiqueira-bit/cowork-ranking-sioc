@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T00:32:47-03:00",
+  "generated_at": "2026-09-16T00:37:43-03:00",
   "shift_label": "15/09 23:00 → 16/09 07:07",
   "shift_date_d0": "2026-09-15",
   "items": [
@@ -18,9 +18,9 @@
     {"name": "tacianamasil", "process": "picking", "unidades": 71, "unh": 99.3},
     {"name": "pralbuquerqu", "process": "picking", "unidades": 70, "unh": 100.3},
     {"name": "deyvsonhesil", "process": "picking", "unidades": 67, "unh": 100.7},
+    {"name": "taixavier", "process": "picking", "unidades": 61, "unh": 107.5},
     {"name": "joajunior", "process": "picking", "unidades": 61, "unh": 90.5},
     {"name": "rocavalcanti", "process": "picking", "unidades": 61, "unh": 120.6},
-    {"name": "taixavier", "process": "picking", "unidades": 61, "unh": 107.5},
     {"name": "wafranca", "process": "picking", "unidades": 55, "unh": 102.0},
     {"name": "ivanil", "process": "picking", "unidades": 53, "unh": 101.9},
     {"name": "emtsilva", "process": "picking", "unidades": 40, "unh": 75.0}
